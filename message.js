@@ -15,15 +15,26 @@ let allMessage = [];
 
 //message generator function and set some output on allMessage
 for (let comp in randomMessage) {
+
+    //message generator all property length generator
     const numFromRandnum = randomNumGen(randomMessage[comp].length);
-    const compPostitionPoperty = randomMessage[comp];
-    if (compPostitionPoperty === 0) {
+    //conditional for setting message 
+    if (comp === 'signComp') {
         allMessage.push(`Your sign is ${randomMessage[comp][numFromRandnum]} .`)
-    } else if (compPostitionPoperty === 1) {
+    } else if (comp === 'fortuneComp') {
         allMessage.push(`You are having ${randomMessage[comp][numFromRandnum]} luck.`)
-    } else if (compPostitionPoperty = 2) {
+    } else if (comp === 'adviseComp') {
         allMessage.push(`You should "trust ${randomMessage[comp][numFromRandnum]}.`)
     } else {
         allMessage.push('An error occurrd. Try again after sometime.')
     }
-}
+
+};
+
+const formateAllMessage = (argu) => {
+    const formatted = argu.join('\n');
+    console.log(formatted);
+};
+
+//call formateAllMessage to formate all message from allMessage arry
+formateAllMessage(allMessage)
